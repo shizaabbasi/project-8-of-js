@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Methods in javascript</h1>
+    <p>In today's class we will be learning the static method, extends method and displaying the properties of a class.</p>
+    <h4>Properties of a class.</h4>
+    <p>In this method we will learn how to create a class. Here's an example:</p>
+    <p id="clothes"></p>
+    
+    <script>
+        class cloth{
+           constructor (brand,material){
+            this.x=brand;
+            this.y=material;
+           }
+        }
+        clothes=new cloth("sapphire","chiffon");
+        document.getElementById("clothes").innerHTML=("I bought some clothes from  " + clothes.x +" out of which two clothes were of "+clothes.y);
+    </script>
+    <h4>Use of 'extends' keyword</h4>
+    <p>This methods aims on inheriting from the parent class and giving it to the child class just like genes. Following is an example of it:</p>
+    <p id="bueaty"></p>
+    <script>
+        class makeup {
+            constructor(brand){
+                this.m=brand;
+            }
+            present(){
+                return 'I have  '+ this.m;
+            }
+        }
+        class quality extends makeup {
+            constructor(brand, quat){
+                super(brand);
+                this.q=quat;
+            }
+            show(){
+                return this.present() +', it is a  '+this.q;
+            }
+        }
+        let myprod =new quality("huda bueaty makeup","kajol");
+        document.getElementById("bueaty").innerHTML=myprod.show();
+    </script>
+    <h4>
+        Use of 'static' keyword
+    </h4>
+    <p>Here's an example of it</p>
+    <p id="hello"></p>
+    <p id="aoa"></p>
+    <p id="welcome"></p>
+    <script>
+    class Student {
+      constructor(name) {
+        this.studentname = name;
+      }
+      static hello() {  
+        return "Hello!!" ;
+      }
+      static welcome(x) {
+        return "Welcome " + x.studentname;
+      }
+      hi() {
+      return "Assalamualaikum " + this.studentname;
+      }
+    }
+    myname = new Student("Shiza");
+    document.getElementById("aoa").innerHTML = myname.hi();
+    document.getElementById("welcome").innerHTML = Student.welcome(myname);
+    document.getElementById("hello").innerHTML = Student.hello();
+    </script>
+</body>
+</html>
